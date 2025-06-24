@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants/app_text_style.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({
+class CustomButton2 extends StatelessWidget {
+  const CustomButton2({
     super.key,
     required this.onTap,
     required this.title,
@@ -34,10 +34,10 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(radius ?? 10),
+    return GestureDetector(
       onTap: onTap,
-      child: Ink(
+      child: Container(
+        alignment: Alignment.center,
         width: width,
         padding: EdgeInsets.symmetric(
           vertical: paddingVertical ?? 18.h,

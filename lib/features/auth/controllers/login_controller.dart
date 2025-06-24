@@ -8,4 +8,7 @@ class LoginController extends GetxController{
 
   var keepMeSigned = false.obs;
   var emailMe = false.obs;
+
+  final formKey = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
 }
