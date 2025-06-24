@@ -33,163 +33,165 @@ class OrderDetail extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: InkWell(
-                              onTap: (){
-                                Navigator.pop(context);
-                              },
-                              borderRadius: BorderRadius.circular(16),
-                              child: Ink(
-                                padding: EdgeInsetsDirectional.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Color(0xffFDF5ED),
-                                ),
-                                child: Icon(
-                                  CupertinoIcons.back,
-                                  color: Color(0xffDA6317),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: InkWell(
+                                onTap: (){
+                                  Navigator.pop(context);
+                                },
+                                borderRadius: BorderRadius.circular(16),
+                                child: Ink(
+                                  padding: EdgeInsetsDirectional.all(10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    color: Color(0xffFDF5ED),
+                                  ),
+                                  child: Icon(
+                                    CupertinoIcons.back,
+                                    color: Color(0xffDA6317),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: 16.h),
-                          Text(
-                            "Order details",
-                            style: globalTextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w900,
+                            SizedBox(height: 16.h),
+                            Text(
+                              "Order details",
+                              style: globalTextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w900,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 30.h),
-                          SizedBox(
-                            child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              itemCount: controller.products.length >= 3
-                                  ? 3
-                                  : controller.products.length,
-                              itemBuilder: (context, index) {
-                                var product = controller.products[index];
-                                return Padding(
-                                  padding: const EdgeInsets.only(bottom: 10.0),
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                      vertical: 12,
-                                      horizontal: 10,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: AppColors.whiteColor,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(12),
-                                          child: Image.asset(
-                                            product.images,
-                                            width: 54,
-                                            height: 54,
-                                            fit: BoxFit.cover,
+                            SizedBox(height: 30.h),
+                            SizedBox(
+                              child: ListView.builder(
+                                physics: NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: controller.products.length >= 3
+                                    ? 3
+                                    : controller.products.length,
+                                itemBuilder: (context, index) {
+                                  var product = controller.products[index];
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 10.0),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 12,
+                                        horizontal: 10,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        color: AppColors.whiteColor,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(12),
+                                            child: Image.asset(
+                                              product.images,
+                                              width: 54,
+                                              height: 54,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
-                                        ),
-                                        SizedBox(width: 20),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                product.title,
-                                                style: globalTextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w700,
-                                                ),
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                              Text(
-                                                product.des,
-                                                style: globalTextStyle(
-                                                  color: AppColors.dotColor,
-                                                ),
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                              SizedBox(height: 5),
-                                              Text(
-                                                "\$ ${product.price.toString()}",
-                                                style: globalTextStyle(
-                                                  color: AppColors.primaryColor,
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Obx(
-                                          () => Row(
-                                            children: [
-                                              GestureDetector(
-                                                onTap: () {
-                                                  product.count.value--;
-                                                },
-                                                child: Container(
-                                                  padding: EdgeInsets.all(6),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffEBFBF2),
-                                                    borderRadius:
-                                                        BorderRadius.circular(8),
+                                          SizedBox(width: 20),
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  product.title,
+                                                  style: globalTextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w700,
                                                   ),
-                                                  child: Icon(
-                                                    Icons.remove,
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                                Text(
+                                                  product.des,
+                                                  style: globalTextStyle(
+                                                    color: AppColors.dotColor,
+                                                  ),
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                                SizedBox(height: 5),
+                                                Text(
+                                                  "\$ ${product.price.toString()}",
+                                                  style: globalTextStyle(
                                                     color: AppColors.primaryColor,
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(width: 12),
-                                              Text(
-                                                product.count.value.toString(),
-                                                style: globalTextStyle(
-                                                  fontWeight: FontWeight.w700,
-                                                ),
-                                              ),
-                                              SizedBox(width: 12),
-                                              GestureDetector(
-                                                onTap: () {
-                                                  product.count.value++;
-                                                },
-                                                child: Container(
-                                                  padding: EdgeInsets.all(6),
-                                                  decoration: BoxDecoration(
-                                                    color: AppColors.primaryColor,
-                                                    borderRadius:
-                                                        BorderRadius.circular(8),
-                                                  ),
-                                                  child: Icon(
-                                                    Icons.add,
-                                                    color: AppColors.whiteColor,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                          Obx(
+                                            () => Row(
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    product.count.value--;
+                                                  },
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xffEBFBF2),
+                                                      borderRadius:
+                                                          BorderRadius.circular(8),
+                                                    ),
+                                                    child: Icon(
+                                                      Icons.remove,
+                                                      color: AppColors.primaryColor,
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(width: 12),
+                                                Text(
+                                                  product.count.value.toString(),
+                                                  style: globalTextStyle(
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 12),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    product.count.value++;
+                                                  },
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(6),
+                                                    decoration: BoxDecoration(
+                                                      color: AppColors.primaryColor,
+                                                      borderRadius:
+                                                          BorderRadius.circular(8),
+                                                    ),
+                                                    child: Icon(
+                                                      Icons.add,
+                                                      color: AppColors.whiteColor,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
+                                  );
+                                },
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
 

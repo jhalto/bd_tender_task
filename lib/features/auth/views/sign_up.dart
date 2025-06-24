@@ -40,7 +40,7 @@ class SignUp extends StatelessWidget {
                   children: [
                     screenHeight && keyboardOpen
                         ? SizedBox()
-                        : SizedBox(height: keyboardOpen ? 40.h : 100.h),
+                        : SizedBox(height: keyboardOpen ? 30.h : 80.h),
                 
                     screenHeight && keyboardOpen
                         ? SizedBox()
@@ -65,8 +65,8 @@ class SignUp extends StatelessWidget {
                           ),
                     screenHeight && keyboardOpen
                         ? SizedBox()
-                        : SizedBox(height: keyboardOpen ? 30.h : 60.h),
-                    screenHeight && keyboardOpen
+                        : SizedBox(height: keyboardOpen ? 20.h : 50.h),
+                    keyboardOpen
                         ? SizedBox()
                         : Text(
                             "Sign Up For Free",
@@ -75,7 +75,7 @@ class SignUp extends StatelessWidget {
                               fontWeight: FontWeight.w900,
                             ),
                           ),
-                    SizedBox(height: keyboardOpen ? 15.h : 30.h),
+                    SizedBox(height: keyboardOpen ? 10.h : 30.h),
                     CustomFormField(
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
@@ -223,7 +223,7 @@ class SignUp extends StatelessWidget {
                         Get.offAll(()=>UserGoogleNavBarDemo());
                       }
                     }, title: "Create Account"),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 5.h),
                     TextButton(
                       onPressed: () {
                         Get.off(() => Login());
